@@ -18,8 +18,12 @@ jobs:
 
       # https://github.com/peaceiris/workflows/blob/main/setup-mage/action.yml
       - uses: peaceiris/workflows/setup-mage@main
+        with:
+          mage-version: '1.10.0'
       # https://github.com/peaceiris/workflows/blob/main/setup-goreleaser/action.yml
       - uses: peaceiris/workflows/setup-goreleaser@main
+        with:
+          goreleaser-version: '0.149.0'
 
       - name: Setup Go
         uses: actions/setup-go@v2
