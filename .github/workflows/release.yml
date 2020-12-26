@@ -31,6 +31,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
 
+      - run: go mod download
+      - run: go mod verify
       - run: mage fmt
       - run: mage vet
       # - run: mage lint
