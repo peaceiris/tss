@@ -8,7 +8,7 @@ import (
 	"log"
 	"os"
 
-	tss "github.com/kevinburke/tss/lib"
+	tss "github.com/peaceiris/tss/lib"
 )
 
 func init() {

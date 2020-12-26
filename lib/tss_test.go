@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	tss "github.com/kevinburke/tss/lib"
+	tss "github.com/peaceiris/tss/lib"
 )
 
 type sleepReader struct {
