@@ -36,3 +36,16 @@ changelog:
   sort: asc
 release:
   name_template: "{{.ProjectName}} v{{.Version}}"
+brews:
+  - tap:
+      owner: peaceiris
+      name: homebrew-tap
+    folder: Formula
+    homepage: https://github.com/peaceiris/tss
+    description: A Go port of moreutils/ts and fork of kevinburke/tss
+    license: MIT
+    test: |
+      system "#{bin}/tss -h"
+    commit_author:
+      name: 'github-actions[bot]'
+      email: 'github-actions[bot]@users.noreply.github.com'
