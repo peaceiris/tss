@@ -1,0 +1,36 @@
+# http://goreleaser.com
+project_name: tss
+before:
+  hooks:
+    - go mod download
+env:
+  - GO111MODULE=on
+  - GOPROXY=https://proxy.golang.org
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      # - arm
+      - arm64
+    goarm:
+      - 6
+archives:
+  - format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+    name_template: "{{.ProjectName}}_{{.Version}}_{{.Os}}-{{.Arch}}"
+    files:
+      - README.md
+      - LICENSE
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc

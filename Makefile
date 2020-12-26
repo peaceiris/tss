@@ -29,3 +29,7 @@ check:
 .PHONY: fmt
 fmt:
 	mage fmt
+
+.PHONY: release-test
+release-test:
+	goreleaser --snapshot --skip-publish --rm-dist

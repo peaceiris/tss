@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # https://github.com/peaceiris/workflows/blob/main/setup-mage/action.yml
+      - uses: peaceiris/workflows/setup-mage@main
+      # https://github.com/peaceiris/workflows/blob/main/setup-goreleaser/action.yml
+      - uses: peaceiris/workflows/setup-goreleaser@main
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.15'
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - run: mage fmt
+      - run: mage vet
+      # - run: mage lint
+      - run: mage test
+      - run: goreleaser check
+
+      - name: goreleaser release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: goreleaser release --rm-dist
