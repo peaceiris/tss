@@ -18,3 +18,17 @@ $ (sleep 1; echo "hello"; sleep 2; echo "two sec") | tss
 
 The first column is the amount of time that has elapsed since the program started.
 The second column is the amount of time that has elapsed since the last line printed.
+
+## Installation
+
+### homebrew
+
+For macOS and Linux.
+
+```sh
+brew install peaceiris/tap/tss
+```
+
+### Binary
+
+[Releases · peaceiris/tss](https://github.com/peaceiris/tss/releases)
