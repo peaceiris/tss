@@ -1,5 +1,15 @@
 ## tss
 
+[![license](https://img.shields.io/github/license/peaceiris/tss.svg)](https://github.com/peaceiris/tss/blob/main/LICENSE)
+[![release](https://img.shields.io/github/release/peaceiris/tss.svg)](https://github.com/peaceiris/tss/releases/latest)
+[![GitHub release date](https://img.shields.io/github/release-date/peaceiris/tss.svg)](https://github.com/peaceiris/tss/releases)
+[![Release Feed](https://img.shields.io/badge/release-feed-yellow)](https://github.com/peaceiris/tss/releases.atom)
+![Test](https://github.com/peaceiris/tss/workflows/CI/badge.svg?branch=main&event=push)
+![Code Scanning](https://github.com/peaceiris/tss/workflows/Code%20Scanning/badge.svg?event=push)
+
+[![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/tss/badge)](https://www.codefactor.io/repository/github/peaceiris/tss)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5eaad3d1e44d6eb87a95/maintainability)](https://codeclimate.com/github/peaceiris/tss/maintainability)
+
 A Go port of moreutils/ts and fork of [kevinburke/tss].
 
 [kevinburke/tss]: https://github.com/kevinburke/tss
