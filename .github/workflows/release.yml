@@ -14,9 +14,9 @@ jobs:
           fetch-depth: 0
 
       # https://github.com/peaceiris/workflows/blob/main/setup-mage/action.yml
-      - uses: peaceiris/workflows/setup-mage@main
+      - uses: peaceiris/workflows/setup-mage@v0.8.0
       # https://github.com/peaceiris/workflows/blob/main/setup-goreleaser/action.yml
-      - uses: peaceiris/workflows/setup-goreleaser@main
+      - uses: peaceiris/workflows/setup-goreleaser@v0.8.0
 
       - name: Setup Go
         uses: actions/setup-go@v2
