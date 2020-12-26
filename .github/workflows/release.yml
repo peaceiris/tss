@@ -1,20 +1,17 @@
-name: CI
+name: Release
 
 on:
   push:
-    branches:
-      - main
-    paths-ignore:
-      - '**.md'
-  pull_request:
-    paths-ignore:
-      - '**.md'
+    tags:
+      - 'v*.*.*'
 
 jobs:
-  test:
+  release:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       # https://github.com/peaceiris/workflows/blob/main/setup-mage/action.yml
       - uses: peaceiris/workflows/setup-mage@main
@@ -39,5 +36,8 @@ jobs:
       # - run: mage lint
       - run: mage test
       - run: goreleaser check
-      - run: mage install
-      - run: tss -h
+
+      - name: goreleaser release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: goreleaser release --rm-dist
