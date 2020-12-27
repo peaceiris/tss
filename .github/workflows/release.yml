@@ -42,4 +42,7 @@ jobs:
       - name: goreleaser release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-        run: goreleaser release --rm-dist
+        run: |
+          TAG_NAME="${GITHUB_REF##refs/tags/}"
+          RELEASE_NOTES="See [CHANGELOG.md](https://github.com/${GITHUB_REPOSITORY}/blob/${TAG_NAME}/CHANGELOG.md) for more details."
+          goreleaser release --rm-dist --release-notes <(echo ${RELEASE_NOTES})

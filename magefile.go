@@ -235,3 +235,44 @@ func argsToStrings(v ...interface{}) []string {
 
 	return args
 }
+
+// Run npx standard-version --release-as patch --preset eslint
+func BumpPatchVersion() error {
+	fmt.Printf("\nnpx standard-version --release-as patch --preset eslint\n")
+	out, err := sh.Output("npx", "standard-version", "--release-as", "patch", "--preset", "eslint")
+	fmt.Println(out)
+	return err
+}
+
+// Run npx standard-version --release-as minor --preset eslint
+func BumpMinorVersion() error {
+	fmt.Printf("\nnpx standard-version --release-as minor --preset eslint\n")
+	out, err := sh.Output("npx", "standard-version", "--release-as", "minor", "--preset", "eslint")
+	fmt.Println(out)
+	return err
+}
+
+// Run npx standard-version --release-as patch --preset eslint --dry-run
+func BumpVersionTest() error {
+	fmt.Printf("\nnpx standard-version --release-as patch --preset eslint --dry-run\n")
+	out, err := sh.Output("npx", "standard-version", "--release-as", "patch", "--preset", "eslint", "--dry-run")
+	fmt.Println(out)
+	return err
+}
+
+// Run goreleaser check
+func GoreleaserCheck() error {
+	fmt.Printf("\ngoreleaser check\n")
+	return sh.Run("goreleaser", "check")
+}
+
+// Run goreleaser --snapshot --skip-publish --rm-dist
+func GoreleaserTest() error {
+	fmt.Printf("\ngoreleaser --snapshot --skip-publish --rm-dist\n")
+	return sh.Run("goreleaser", "--snapshot", "--skip-publish", "--rm-dist")
+}
+
+// Run GoreleaserCheck, GoreleaserTest, BumpVersionTest
+func ReleaseTest() {
+	mg.SerialDeps(GoreleaserCheck, GoreleaserTest, BumpVersionTest)
+}
