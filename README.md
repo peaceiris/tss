@@ -29,6 +29,7 @@ The second column is the amount of time that has elapsed since the last line pri
 [![Go Report Card](https://goreportcard.com/badge/github.com/peaceiris/tss)](https://goreportcard.com/report/github.com/peaceiris/tss)
 [![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/tss/badge)](https://www.codefactor.io/repository/github/peaceiris/tss)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5eaad3d1e44d6eb87a95/maintainability)](https://codeclimate.com/github/peaceiris/tss/maintainability)
+[![codecov](https://codecov.io/gh/peaceiris/tss/branch/master/graph/badge.svg?token=4119ASAR7K)](https://codecov.io/gh/peaceiris/tss)
 
 
 
