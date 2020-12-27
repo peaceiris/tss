@@ -34,13 +34,15 @@ The second column is the amount of time that has elapsed since the last line pri
 
 ## Installation
 
-### homebrew
+### Homebrew
 
 For macOS and Linux.
 
 ```sh
 brew install peaceiris/tap/tss
 ```
+
+[peaceiris/homebrew-tap/tss.rb](https://github.com/peaceiris/homebrew-tap/blob/main/Formula/tss.rb)
 
 ### Binary
 
