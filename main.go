@@ -20,6 +20,7 @@ Annotate stdin with timestamps per line.
 	}
 }
 
+// Version tss version
 const Version = "1.1"
 
 func main() {
