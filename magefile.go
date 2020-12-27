@@ -236,20 +236,23 @@ func argsToStrings(v ...interface{}) []string {
 	return args
 }
 
+func BumpVersion(releaseType string) error {
+	fmt.Printf("\nnpx standard-version --release-as %s --preset eslint\n", releaseType)
+	out, err := sh.Output("npx", "standard-version", "--release-as", releaseType, "--preset", "eslint")
+	fmt.Println(out)
+	sh.Run("git", "push", "origin", "main")
+	sh.Run("git", "push", "origin", "--tags")
+	return err
+}
+
 // Run npx standard-version --release-as patch --preset eslint
 func BumpPatchVersion() error {
-	fmt.Printf("\nnpx standard-version --release-as patch --preset eslint\n")
-	out, err := sh.Output("npx", "standard-version", "--release-as", "patch", "--preset", "eslint")
-	fmt.Println(out)
-	return err
+	return BumpVersion("patch")
 }
 
 // Run npx standard-version --release-as minor --preset eslint
 func BumpMinorVersion() error {
-	fmt.Printf("\nnpx standard-version --release-as minor --preset eslint\n")
-	out, err := sh.Output("npx", "standard-version", "--release-as", "minor", "--preset", "eslint")
-	fmt.Println(out)
-	return err
+	return BumpVersion("minor")
 }
 
 // Run npx standard-version --release-as patch --preset eslint --dry-run
