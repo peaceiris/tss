@@ -26,6 +26,7 @@ var buildVersion string
 var buildCommit string
 var buildDate string
 
+// BuildVersionString returns tss build environment variables
 func BuildVersionString() string {
 	version := buildVersion
 	commit := buildCommit
