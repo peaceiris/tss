@@ -21,15 +21,15 @@ Annotate stdin with timestamps per line.
 }
 
 // Version tss version
-const Version = "1.1"
+const Version = ""
 
 func main() {
 	version := flag.Bool("version", false, "Print the version string")
 	v := flag.Bool("v", false, "Print the version string")
 	flag.Parse()
 	if *version || *v {
-		fmt.Fprintf(os.Stderr, "tss version %s\n", Version)
-		os.Exit(2)
+		fmt.Fprintf(os.Stderr, "TSS_VERSION=\"%s\"\n", Version)
+		os.Exit(0)
 	}
 	if _, err := tss.Copy(os.Stdout, os.Stdin); err != nil {
 		log.Fatal(err)
