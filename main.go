@@ -21,10 +21,10 @@ Annotate stdin with timestamps per line.
 	}
 }
 
-// Version tss version
-var buildVersion string
-var buildCommit string
-var buildDate string
+// tss build env
+var buildVersion string = "development"
+var buildCommit string = "development"
+var buildDate string = "development"
 
 // BuildVersionString returns tss build environment variables
 func BuildVersionString() string {

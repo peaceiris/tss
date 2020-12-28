@@ -49,4 +49,5 @@ jobs:
       - run: mage GoreleaserTest
       - run: mage BumpVersionTest
       - run: mage install
+      - run: tss -v
       - run: tss -h
