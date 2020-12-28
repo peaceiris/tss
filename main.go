@@ -21,7 +21,7 @@ Annotate stdin with timestamps per line.
 }
 
 // Version tss version
-const Version = ""
+var Version string
 
 func main() {
 	version := flag.Bool("version", false, "Print the version string")
