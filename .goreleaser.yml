@@ -19,6 +19,8 @@ builds:
       - arm64
     goarm:
       - 6
+    ldflags:
+      - -s -w -X main.version={{.Version}} # -X main.commit={{.Commit}} -X main.date={{.Date}}
 archives:
   - format: tar.gz
     format_overrides:
