@@ -22,13 +22,19 @@ Annotate stdin with timestamps per line.
 
 // Version tss version
 var Version string
+var Commit string
+var Date string
 
 func main() {
 	version := flag.Bool("version", false, "Print the version string")
 	v := flag.Bool("v", false, "Print the version string")
 	flag.Parse()
 	if *version || *v {
-		fmt.Fprintf(os.Stderr, "TSS_VERSION=\"%s\"\n", Version)
+		envString := fmt.Sprintf(`TSS_VERSION=\"%s\"
+TSS_BUILD_COMMIT=\"%s\"
+TSS_BUILD_DATE=\"%s\"
+`, Version, Commit, Date)
+		fmt.Println(envString)
 		os.Exit(0)
 	}
 	if _, err := tss.Copy(os.Stdout, os.Stdin); err != nil {
