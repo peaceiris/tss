@@ -36,6 +36,7 @@ jobs:
 
       - run: go mod download
       - run: go mod verify
+      - run: mage setup
       - run: mage fmt
       - run: mage vet
       - run: mage lint
