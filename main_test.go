@@ -12,7 +12,7 @@ TSS_BUILD_GOOS="darwin"
 TSS_BUILD_GOARCH="amd64"
 TSS_BUILD_GOVERSION="go1.15.6"`
 	out := BuildEnvString("darwin", "amd64", "go1.15.6")
-	if out != out {
-		t.Errorf(`BuildEnvString(); want %s`, want)
+	if out != want {
+		t.Errorf("BuildEnvString(); want \n%s", want)
 	}
 }
