@@ -8,6 +8,7 @@ import (
 	"time"
 )
 
+// Writer represents output of tss
 type Writer struct {
 	w         io.Writer
 	start     time.Time
@@ -121,10 +122,12 @@ func TimeScaler(d time.Duration) string {
 	}
 }
 
+// Copy returns CopyTime
 func Copy(w io.Writer, r io.Reader) (written int64, err error) {
 	return CopyTime(w, r, time.Now())
 }
 
+// CopyTime copies from Reader to Writer until either EOF is reached on src or an error occurs.
 func CopyTime(w io.Writer, r io.Reader, start time.Time) (written int64, err error) {
 	return io.Copy(NewWriter(w, start), r)
 }

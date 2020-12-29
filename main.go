@@ -7,28 +7,26 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"runtime"
 
 	tss "github.com/peaceiris/tss/lib"
 )
 
 func init() {
 	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, `tss [-v] [-h]
+		fmt.Println(`tss [-v] [-h]
 
-Annotate stdin with timestamps per line.
-`)
+Annotate stdin with timestamps per line.`)
 	}
 }
-
-const Version = "1.1"
 
 func main() {
 	version := flag.Bool("version", false, "Print the version string")
 	v := flag.Bool("v", false, "Print the version string")
 	flag.Parse()
 	if *version || *v {
-		fmt.Fprintf(os.Stderr, "tss version %s\n", Version)
-		os.Exit(2)
+		fmt.Printf(tss.GetBuildEnvsString(runtime.GOOS, runtime.GOARCH, runtime.Version()))
+		os.Exit(0)
 	}
 	if _, err := tss.Copy(os.Stdout, os.Stdin); err != nil {
 		log.Fatal(err)

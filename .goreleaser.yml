@@ -3,6 +3,7 @@ project_name: tss
 before:
   hooks:
     - go mod download
+    - go mod verify
 env:
   - GO111MODULE=on
   - GOPROXY=https://proxy.golang.org
@@ -19,6 +20,11 @@ builds:
       - arm64
     goarm:
       - 6
+    ldflags:
+      - -s -w
+      - -X github.com/peaceiris/tss/lib.buildVersion={{.Version}}
+      - -X github.com/peaceiris/tss/lib.buildCommit={{.Commit}}
+      - -X github.com/peaceiris/tss/lib.buildDate={{.Date}}
 archives:
   - format: tar.gz
     format_overrides:
@@ -32,14 +38,6 @@ checksum:
   name_template: 'checksums.txt'
 snapshot:
   name_template: "{{ .Tag }}-next"
-changelog:
-  sort: asc
-  filters:
-    exclude:
-      - '^chore:'
-      - '^ci:'
-      - '^build:'
-      - '^style:'
 release:
   name_template: "{{.ProjectName}} v{{.Version}}"
 brews:
