@@ -15,7 +15,7 @@ type BuildEnv struct {
 	value string
 }
 
-// getBuildEnvsString returns tss build environment variables
+// GetBuildEnvsString returns tss build environment variables
 func GetBuildEnvsString(goOS string, goArch string, goVersion string) string {
 	version := buildVersion
 	commit := buildCommit
