@@ -38,14 +38,6 @@ checksum:
   name_template: 'checksums.txt'
 snapshot:
   name_template: "{{ .Tag }}-next"
-changelog:
-  sort: asc
-  filters:
-    exclude:
-      - '^chore:'
-      - '^ci:'
-      - '^build:'
-      - '^style:'
 release:
   name_template: "{{.ProjectName}} v{{.Version}}"
 brews:
