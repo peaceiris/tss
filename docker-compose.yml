@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  dev:
+    image: ghcr.io/peaceiris/tssdev:latest
+    build:
+      context: .
+      target: dev
+    container_name: peaceiris_tss_dev_latest
+    volumes:
+      - ${PWD}:/go/src/github.com/peaceiris/tss
+    stdin_open: true
+    tty: true
+    command:
+      - "bash"
