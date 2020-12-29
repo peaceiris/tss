@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.2.0](https://github.com/peaceiris/tss/compare/v0.1.3...v0.2.0) (2020-12-29)
+
+
+### build
+
+* Add BumpPatchVersion BumpMinorVersion BumpVersion ([10f05be](https://github.com/peaceiris/tss/commit/10f05be2f092087107f7ac0ecbb2c375705ae513))
+
+### chore
+
+* update codecov badge ([06c2c6f](https://github.com/peaceiris/tss/commit/06c2c6ff7eaa88b9922e7d8c6f5dd5c6524479fd))
+
+### ci
+
+* Add codecov badge ([abe5e0f](https://github.com/peaceiris/tss/commit/abe5e0f0c099b6edf8038647cdafe0c8eec9f2aa))
+* Add codecov/codecov-action (#9) ([730feab](https://github.com/peaceiris/tss/commit/730feab5a4faf69e7998086e3f8ee2d82c500eb1)), closes [#9](https://github.com/peaceiris/tss/issues/9)
+
+### docs
+
+* add link to homebrew-tap/tss.rb ([54b3613](https://github.com/peaceiris/tss/commit/54b3613de67faf122a5ea6a2dd1f7ee211ffb4e4))
+* add link to moreutils ([77dbdf2](https://github.com/peaceiris/tss/commit/77dbdf2bea8fe15d5b9a85fabbf7b9813ec61918))
+
+### feat
+
+* tss build environment variables (#10) ([adc3f6f](https://github.com/peaceiris/tss/commit/adc3f6f7ead0fe0efdbd39e14eb624cd3d7e989e)), closes [#10](https://github.com/peaceiris/tss/issues/10)
+
+
+
 ## [0.1.3](https://github.com/peaceiris/tss/compare/v0.1.2...v0.1.3) (2020-12-27)
 
 
