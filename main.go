@@ -25,7 +25,7 @@ func main() {
 	v := flag.Bool("v", false, "Print the version string")
 	flag.Parse()
 	if *version || *v {
-		fmt.Println(tss.BuildEnvString(runtime.GOOS, runtime.GOARCH, runtime.Version()))
+		fmt.Printf(tss.GetBuildEnvsString(runtime.GOOS, runtime.GOARCH, runtime.Version()))
 		os.Exit(0)
 	}
 	if _, err := tss.Copy(os.Stdout, os.Stdin); err != nil {

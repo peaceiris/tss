@@ -9,20 +9,29 @@ var (
 	buildDate    string = "2020-12-28T11:01:32Z-development"
 )
 
-// BuildEnvString returns tss build environment variables
-func BuildEnvString(goOS string, goArch string, goVersion string) string {
+// BuildEnv has shell environment name and value
+type BuildEnv struct {
+	name string
+	value string
+}
+
+// getBuildEnvsString returns tss build environment variables
+func GetBuildEnvsString(goOS string, goArch string, goVersion string) string {
 	version := buildVersion
 	commit := buildCommit
 
-	date := buildDate
-	if date == "" {
-		date = "unknown"
+	buildEnvs := [6]BuildEnv{
+		{name: "VERSION", value: version},
+		{name: "COMMIT", value: commit},
+		{name: "DATE", value: buildDate},
+		{name: "GOOS", value: goOS},
+		{name: "GOARCH", value: goArch},
+		{name: "GOVERSION", value: goVersion},
 	}
 
-	return fmt.Sprintf(`TSS_BUILD_VERSION="%s"
-TSS_BUILD_COMMIT="%s"
-TSS_BUILD_DATE="%s"
-TSS_BUILD_GOOS="%s"
-TSS_BUILD_GOARCH="%s"
-TSS_BUILD_GOVERSION="%s"`, version, commit, date, goOS, goArch, goVersion)
+	out := ""
+	for _, e := range buildEnvs {
+		out += fmt.Sprintf("TSS_BUILD_%s=\"%s\"\n", e.name, e.value)
+	}
+	return out
 }
