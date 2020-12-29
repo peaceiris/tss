@@ -11,7 +11,7 @@ var (
 
 // BuildEnv has shell environment name and value
 type BuildEnv struct {
-	name string
+	name  string
 	value string
 }
 
