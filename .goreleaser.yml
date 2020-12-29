@@ -21,7 +21,10 @@ builds:
     goarm:
       - 6
     ldflags:
-      - -s -w -X main.buildVersion={{.Version}} -X main.buildCommit={{.Commit}} -X main.buildDate={{.Date}}
+      - -s -w
+      - -X github.com/peaceiris/tss/lib/version.buildVersion={{.Version}}
+      - -X github.com/peaceiris/tss/lib/version.buildCommit={{.Commit}}
+      - -X github.com/peaceiris/tss/lib/version.buildDate={{.Date}}
 archives:
   - format: tar.gz
     format_overrides:
