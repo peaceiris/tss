@@ -22,9 +22,9 @@ builds:
       - 6
     ldflags:
       - -s -w
-      - -X github.com/peaceiris/tss/lib/version.buildVersion={{.Version}}
-      - -X github.com/peaceiris/tss/lib/version.buildCommit={{.Commit}}
-      - -X github.com/peaceiris/tss/lib/version.buildDate={{.Date}}
+      - -X github.com/peaceiris/tss/lib.buildVersion={{.Version}}
+      - -X github.com/peaceiris/tss/lib.buildCommit={{.Commit}}
+      - -X github.com/peaceiris/tss/lib.buildDate={{.Date}}
 archives:
   - format: tar.gz
     format_overrides:
