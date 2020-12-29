@@ -20,6 +20,8 @@ const (
 	packageName = "github.com/peaceiris/tss"
 )
 
+var ldflags = `-X $PACKAGE/lib.buildVersion=$VERSION -X $PACKAGE/lib.buildCommit=$COMMIT_HASH -X $PACKAGE/lib.buildDate=$BUILD_DATE`
+
 // allow user to override go executable by running as GOEXE=xxx make ... on unix-like systems
 var goexe = "go"
 
@@ -54,17 +56,17 @@ func Setup() error {
 
 // Build binary
 func Build() error {
-	return runWith(flagEnv(), goexe, "build", buildFlags(), packageName)
+	return runWith(flagEnv(), goexe, "build", "-ldflags", ldflags, buildFlags(), packageName)
 }
 
 // Build binary with race detector enabled
 func BuildRace() error {
-	return runWith(flagEnv(), goexe, "build", "-race", buildFlags(), packageName)
+	return runWith(flagEnv(), goexe, "build", "-race", "-ldflags", ldflags, buildFlags(), packageName)
 }
 
 // Install binary
 func Install() error {
-	return runWith(flagEnv(), goexe, "install", buildFlags(), packageName)
+	return runWith(flagEnv(), goexe, "install", "-ldflags", ldflags, buildFlags(), packageName)
 }
 
 // Uninstall binary
@@ -74,7 +76,9 @@ func Uninstall() error {
 
 func flagEnv() map[string]string {
 	hash, _ := sh.Output("git", "rev-parse", "--short", "HEAD")
+	version, _ := sh.Output("git", "describe", "--tags")
 	return map[string]string{
+		"VERSION":     version,
 		"PACKAGE":     packageName,
 		"COMMIT_HASH": hash,
 		"BUILD_DATE":  time.Now().Format("2006-01-02T15:04:05Z0700"),
