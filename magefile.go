@@ -40,19 +40,16 @@ func runWith(env map[string]string, cmd string, inArgs ...interface{}) error {
 
 // Install development tools
 func Setup() error {
-	err := sh.Run(goexe, "get", "-u", "golang.org/x/lint/golint")
-	if err != nil {
+	if err := sh.Run(goexe, "get", "-u", "golang.org/x/lint/golint"); err != nil {
 		return err
 	}
-	err = sh.Run(goexe, "mod", "tidy")
-	if err != nil {
+	if err := sh.Run(goexe, "mod", "tidy"); err != nil {
 		return err
 	}
-	err = sh.Run(goexe, "mod", "verify")
-	if err != nil {
+	if err := sh.Run(goexe, "mod", "verify"); err != nil {
 		return err
 	}
-	return err
+	return nil
 }
 
 // Build binary
@@ -260,15 +257,13 @@ func BumpVersion(releaseType string) error {
 	if err != nil {
 		return err
 	}
-	err = sh.Run("git", "push", "origin", "main")
-	if err != nil {
+	if err := sh.Run("git", "push", "origin", "main"); err != nil {
 		return err
 	}
-	err = sh.Run("git", "push", "origin", "--tags")
-	if err != nil {
+	if err := sh.Run("git", "push", "origin", "--tags"); err != nil {
 		return err
 	}
-	return err
+	return nil
 }
 
 // Run npx standard-version --release-as patch --preset eslint
