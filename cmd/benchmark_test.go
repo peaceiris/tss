@@ -1,4 +1,4 @@
-package tss
+package cmd
 
 import (
 	"bytes"

@@ -45,6 +45,9 @@ func Setup() error {
 	if err := sh.Run(goexe, "get", "-u", "golang.org/x/lint/golint"); err != nil {
 		return err
 	}
+	if err := sh.Run(goexe, "get", "-u", "github.com/stretchr/testify"); err != nil {
+		return err
+	}
 	if err := sh.Run(goexe, "mod", "tidy"); err != nil {
 		return err
 	}
@@ -113,6 +116,30 @@ func Test() error {
 func TestRace() error {
 	env := map[string]string{"GOFLAGS": testGoFlags()}
 	return runCmd(env, goexe, "test", "-race", "-coverpkg", "./...", "-covermode", "atomic", "-coverprofile", "coverage.txt", "./...", buildFlags())
+}
+
+// Run gofmt -w
+func Fmtw() error {
+	if !isGoLatest() {
+		return nil
+	}
+	pkgs, err := tssPackages()
+	if err != nil {
+		return err
+	}
+	for _, pkg := range pkgs {
+		files, err := filepath.Glob(filepath.Join(pkg, "*.go"))
+		if err != nil {
+			return nil
+		}
+		for _, f := range files {
+			_, err := sh.Output("gofmt", "-w", f)
+			if err != nil {
+				fmt.Printf("ERROR: running gofmt on %q: %v\n", f, err)
+			}
+		}
+	}
+	return nil
 }
 
 // Run gofmt linter

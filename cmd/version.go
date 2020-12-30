@@ -1,6 +1,11 @@
-package tss
+package cmd
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+
+	"github.com/spf13/cobra"
+)
 
 // tss build env
 var (
@@ -8,6 +13,18 @@ var (
 	buildCommit  string = "aaeb6725631dcff02055855ee263ef5f45ed1eea-development"
 	buildDate    string = "2020-12-28T11:01:32Z-development"
 )
+
+// NewCmdVersion creates version command
+func NewCmdVersion() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "version",
+		Short: "Print the version number of tss",
+		Run: func(cmd *cobra.Command, args []string) {
+			cmd.Printf(GetBuildEnvsString(runtime.GOOS, runtime.GOARCH, runtime.Version()))
+		},
+	}
+	return cmd
+}
 
 // BuildEnv has shell environment name and value
 type BuildEnv struct {
