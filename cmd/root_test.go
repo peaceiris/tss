@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/peaceiris/tss/cmd"
+	"github.com/stretchr/testify/assert"
 )
 
 type sleepReader struct {
@@ -83,9 +84,7 @@ func TestCopy(t *testing.T) {
 		t.Errorf("line1 length: want %d got %d", 23, len(line1))
 	}
 	lineParts := strings.Fields(line1)
-	if len(lineParts) != 2 {
-		t.Errorf("wrong line parts")
-	}
+	assert.Equal(t, 3, len(lineParts), "hoge")
 	part, err := time.ParseDuration(lineParts[0])
 	if err != nil {
 		t.Fatal(err)

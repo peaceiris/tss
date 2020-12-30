@@ -90,7 +90,12 @@ func (w *Writer) Write(p []byte) (int, error) {
 			w.buf.WriteString(s)
 			w.buf.WriteByte(' ')
 			if w.lastLine.IsZero() {
-				w.buf.Write(padding)
+				s := TimeScaler(sinceStart)
+				for i := 0; i < 8-len(s); i++ {
+					w.buf.WriteByte(' ')
+				}
+				w.buf.WriteString(s)
+				w.buf.WriteByte(' ')
 				w.lastLine = now
 			} else {
 				sinceLastLine := now.Sub(w.lastLine).Round(100 * time.Microsecond)
