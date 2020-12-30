@@ -3,6 +3,7 @@ package cmd
 import (
 	"bytes"
 	"fmt"
+	"runtime"
 	"strings"
 	"testing"
 
@@ -11,13 +12,20 @@ import (
 
 func TestBuildEnvsString(t *testing.T) {
 	command := "tss version"
-	want := `TSS_BUILD_VERSION="0.1.2-development"
-TSS_BUILD_COMMIT="aaeb6725631dcff02055855ee263ef5f45ed1eea-development"
-TSS_BUILD_DATE="2020-12-28T11:01:32Z-development"
-TSS_BUILD_GOOS="darwin"
-TSS_BUILD_GOARCH="amd64"
-TSS_BUILD_GOVERSION="go1.15.6"
-`
+
+	buildEnvs := [6]BuildEnv{
+		{name: "VERSION", value: "0.1.2-development"},
+		{name: "COMMIT", value: "aaeb6725631dcff02055855ee263ef5f45ed1eea-development"},
+		{name: "DATE", value: "2020-12-28T11:01:32Z-development"},
+		{name: "GOOS", value: runtime.GOOS},
+		{name: "GOARCH", value: runtime.GOARCH},
+		{name: "GOVERSION", value: runtime.Version()},
+	}
+
+	want := ""
+	for _, e := range buildEnvs {
+		want += fmt.Sprintf("TSS_BUILD_%s=\"%s\"\n", e.name, e.value)
+	}
 
 	buf := new(bytes.Buffer)
 	cmd := NewCmdVersion()
