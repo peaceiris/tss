@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.3.0](https://github.com/peaceiris/tss/compare/v0.2.0...v0.3.0) (2020-12-30)
+
+
+### build
+
+* Add Dockerfile docker-compose.yml (#11) ([7b5417d](https://github.com/peaceiris/tss/commit/7b5417df02882549ceb547b544ec432e2beb7947)), closes [#11](https://github.com/peaceiris/tss/issues/11)
+* Add ldflags ([aeae4cb](https://github.com/peaceiris/tss/commit/aeae4cb6638e680df80a531634ff0784470fd308))
+
+### ci
+
+* Add mage setup and lint ([f1f2ec9](https://github.com/peaceiris/tss/commit/f1f2ec969c57045e48426900ddcd999bc7dabb8f))
+
+### deps
+
+* bump github.com/magefile/mage from 1.10.0 to 1.11.0 (#12) ([7c4171c](https://github.com/peaceiris/tss/commit/7c4171ce2f018605734753d33afd7b43afa6db2c)), closes [#12](https://github.com/peaceiris/tss/issues/12)
+
+### docs
+
+* Add description ([1e2c8b0](https://github.com/peaceiris/tss/commit/1e2c8b0cfff145c901ba3571311841216edfb003))
+
+### feat
+
+* Add sub command version (#14) ([8ba9702](https://github.com/peaceiris/tss/commit/8ba9702bfa6c95522235a1ae4bf6313d5aefd19b)), closes [#14](https://github.com/peaceiris/tss/issues/14)
+
+### refactor
+
+* error handling ([251e10a](https://github.com/peaceiris/tss/commit/251e10aef894ebf35865b6e173543117bf956fb0))
+* Rename lib to cmd (#13) ([402d276](https://github.com/peaceiris/tss/commit/402d276cccee8ba2746756088877a32ee152fdc0)), closes [#13](https://github.com/peaceiris/tss/issues/13)
+
+
+
 # [0.2.0](https://github.com/peaceiris/tss/compare/v0.1.3...v0.2.0) (2020-12-29)
 
 
