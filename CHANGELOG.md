@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.4.0](https://github.com/peaceiris/tss/compare/v0.3.1...v0.4.0) (2020-12-30)
+
+
+### feat
+
+* print first since last line time (#16) ([e82e0fb](https://github.com/peaceiris/tss/commit/e82e0fb6451a7e46279864ffbf974127fa15e052)), closes [#16](https://github.com/peaceiris/tss/issues/16)
+
+
+
 ## [0.3.1](https://github.com/peaceiris/tss/compare/v0.3.0...v0.3.1) (2020-12-30)
 
 
