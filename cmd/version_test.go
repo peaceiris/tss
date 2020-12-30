@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"strings"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestBuildEnvsString(t *testing.T) {
@@ -26,7 +28,5 @@ TSS_BUILD_GOVERSION="go1.15.6"
 	cmd.Execute()
 	out := buf.String()
 
-	if out != want {
-		t.Errorf("tss version: want \n%s", want)
-	}
+	assert.Equal(t, out, want, "they should be equal")
 }
