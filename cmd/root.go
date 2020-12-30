@@ -1,12 +1,39 @@
-package tss
+package cmd
 
 import (
 	"bytes"
 	"fmt"
 	"io"
+	"os"
 	"strconv"
 	"time"
+
+	"github.com/spf13/cobra"
 )
+
+// NewCmdRoot creates root command
+func NewCmdRoot() *cobra.Command {
+	return &cobra.Command{
+		Use:   "tss",
+		Short: "Annotate stdin with timestamps per line",
+		Run: func(cmd *cobra.Command, args []string) {
+			if _, err := Copy(os.Stdout, os.Stdin); err != nil {
+				fmt.Fprintf(os.Stderr, "%v", err)
+			}
+		},
+	}
+}
+
+// Execute runs root command
+func Execute() {
+	cmd := NewCmdRoot()
+	cmd.SetOutput(os.Stdout)
+	if err := cmd.Execute(); err != nil {
+		cmd.SetOutput(os.Stderr)
+		cmd.Println(err)
+		os.Exit(1)
+	}
+}
 
 // Writer represents output of tss
 type Writer struct {

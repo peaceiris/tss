@@ -1,4 +1,4 @@
-package tss_test
+package cmd_test
 
 import (
 	"bytes"
@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	tss "github.com/peaceiris/tss/cmd"
+	"github.com/peaceiris/tss/cmd"
 )
 
 type sleepReader struct {
@@ -51,7 +51,7 @@ func TestWriter(t *testing.T) {
 	max := 6
 	s := &sleepReader{max: max, sleepFor: 2 * time.Millisecond}
 	buf := new(bytes.Buffer)
-	w := tss.NewWriter(buf, time.Time{})
+	w := cmd.NewWriter(buf, time.Time{})
 	n, err := io.Copy(w, s)
 	if err != nil {
 		t.Fatal(err)
@@ -66,7 +66,7 @@ func TestCopy(t *testing.T) {
 	max := 6
 	s := &sleepReader{max: max, sleepFor: 2 * time.Millisecond}
 	buf := new(bytes.Buffer)
-	n, err := tss.Copy(buf, s)
+	n, err := cmd.Copy(buf, s)
 	want := len("hello\n") * 6
 	if err != nil {
 		t.Errorf("expected nil error, got %v", err)
@@ -120,7 +120,7 @@ var scalerTests = []struct {
 
 func TestTimeScaler(t *testing.T) {
 	for _, tt := range scalerTests {
-		v := tss.TimeScaler(tt.in)
+		v := cmd.TimeScaler(tt.in)
 		if v != tt.out {
 			t.Errorf("timeScaler(%q): want %q, got %q", tt.in, tt.out, v)
 		}
