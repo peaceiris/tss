@@ -54,12 +54,8 @@ func TestWriter(t *testing.T) {
 	buf := new(bytes.Buffer)
 	w := cmd.NewWriter(buf, time.Time{})
 	n, err := io.Copy(w, s)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if int(n) != len("hello\n")*max {
-		t.Errorf("expected n of 36, got %d:\n%s", n, buf)
-	}
+	assert.Nil(t, err)
+	assert.Equal(t, len("hello\n")*max, int(n), "n is 36")
 }
 
 func TestCopy(t *testing.T) {
@@ -68,10 +64,8 @@ func TestCopy(t *testing.T) {
 	s := &sleepReader{max: max, sleepFor: 2 * time.Millisecond}
 	buf := new(bytes.Buffer)
 	n, err := cmd.Copy(buf, s)
+	assert.Nil(t, err)
 	want := len("hello\n") * 6
-	if err != nil {
-		t.Errorf("expected nil error, got %v", err)
-	}
 	if int(n) != want {
 		t.Errorf("expected n of %d, got %d", want, n)
 	}
@@ -84,11 +78,9 @@ func TestCopy(t *testing.T) {
 		t.Errorf("line1 length: want %d got %d", 23, len(line1))
 	}
 	lineParts := strings.Fields(line1)
-	assert.Equal(t, 3, len(lineParts), "hoge")
+	assert.Equal(t, 3, len(lineParts), "first line has 3 parts")
 	part, err := time.ParseDuration(lineParts[0])
-	if err != nil {
-		t.Fatal(err)
-	}
+	assert.Nil(t, err)
 	if part > 100*time.Millisecond {
 		t.Errorf("part took too long: %d", part)
 	}
