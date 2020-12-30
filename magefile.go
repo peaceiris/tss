@@ -20,7 +20,7 @@ const (
 	packageName = "github.com/peaceiris/tss"
 )
 
-var ldflags = `-X $PACKAGE/lib.buildVersion=$VERSION -X $PACKAGE/lib.buildCommit=$COMMIT_HASH -X $PACKAGE/lib.buildDate=$BUILD_DATE`
+var ldflags = `-X $PACKAGE/cmd.buildVersion=$VERSION -X $PACKAGE/cmd.buildCommit=$COMMIT_HASH -X $PACKAGE/cmd.buildDate=$BUILD_DATE`
 
 // allow user to override go executable by running as GOEXE=xxx make ... on unix-like systems
 var goexe = "go"

@@ -9,7 +9,7 @@ import (
 	"os"
 	"runtime"
 
-	tss "github.com/peaceiris/tss/lib"
+	tss "github.com/peaceiris/tss/cmd"
 )
 
 func init() {
