@@ -45,9 +45,6 @@ func Setup() error {
 	if err := sh.Run(goexe, "get", "-u", "golang.org/x/lint/golint"); err != nil {
 		return err
 	}
-	if err := sh.Run(goexe, "get", "-u", "github.com/stretchr/testify"); err != nil {
-		return err
-	}
 	if err := sh.Run(goexe, "mod", "tidy"); err != nil {
 		return err
 	}
