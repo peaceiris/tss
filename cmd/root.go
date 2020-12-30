@@ -90,7 +90,6 @@ func (w *Writer) Write(p []byte) (int, error) {
 			w.buf.WriteString(s)
 			w.buf.WriteByte(' ')
 			if w.lastLine.IsZero() {
-				s := TimeScaler(sinceStart)
 				for i := 0; i < 8-len(s); i++ {
 					w.buf.WriteByte(' ')
 				}
