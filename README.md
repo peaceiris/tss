@@ -1,5 +1,6 @@
 ## tss
 
+Annotate stdin with timestamps per line.
 A Go port of [moreutils](https://joeyh.name/code/moreutils/)/ts and fork of [kevinburke/tss].
 
 [kevinburke/tss]: https://github.com/kevinburke/tss
