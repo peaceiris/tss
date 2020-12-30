@@ -13,8 +13,8 @@ Try it out:
 
 ```console
 $ (sleep 1; echo "hello"; sleep 2; echo "two sec") | tss
-   995ms          hello
-      3s   2.005s two sec
+   1.00s    1.00s hello
+   3.01s    2.01s two sec
 ```
 
 The first column is the amount of time that has elapsed since the program started.
