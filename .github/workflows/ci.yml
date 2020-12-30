@@ -16,8 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # https://github.com/peaceiris/workflows/blob/main/setup-mage/action.yml
-      - uses: peaceiris/workflows/setup-mage@v0.8.1
       # https://github.com/peaceiris/workflows/blob/main/setup-goreleaser/action.yml
       - uses: peaceiris/workflows/setup-goreleaser@v0.8.1
 
