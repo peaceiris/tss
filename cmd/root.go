@@ -13,15 +13,19 @@ import (
 
 // NewCmdRoot creates root command
 func NewCmdRoot() *cobra.Command {
-	return &cobra.Command{
+	cmd := &cobra.Command{
 		Use:   "tss",
 		Short: "Annotate stdin with timestamps per line",
 		Run: func(cmd *cobra.Command, args []string) {
 			if _, err := Copy(os.Stdout, os.Stdin); err != nil {
-				fmt.Fprintf(os.Stderr, "%v", err)
+				cmd.PrintErrf("%v", err)
 			}
 		},
 	}
+
+	cmd.AddCommand(NewCmdVersion())
+
+	return cmd
 }
 
 // Execute runs root command

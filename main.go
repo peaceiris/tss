@@ -10,14 +10,6 @@ import (
 	"github.com/peaceiris/tss/cmd"
 )
 
-func init() {
-	// 	flag.Usage = func() {
-	// 		fmt.Println(`tss [-v] [-h]
-
-	// Annotate stdin with timestamps per line.`)
-	// 	}
-}
-
 func main() {
 	cmd.Execute()
 
