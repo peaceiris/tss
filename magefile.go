@@ -115,6 +115,30 @@ func TestRace() error {
 	return runCmd(env, goexe, "test", "-race", "-coverpkg", "./...", "-covermode", "atomic", "-coverprofile", "coverage.txt", "./...", buildFlags())
 }
 
+// Run gofmt -w
+func Fmtw() error {
+	if !isGoLatest() {
+		return nil
+	}
+	pkgs, err := tssPackages()
+	if err != nil {
+		return err
+	}
+	for _, pkg := range pkgs {
+		files, err := filepath.Glob(filepath.Join(pkg, "*.go"))
+		if err != nil {
+			return nil
+		}
+		for _, f := range files {
+			_, err := sh.Output("gofmt", "-w", f)
+			if err != nil {
+				fmt.Printf("ERROR: running gofmt on %q: %v\n", f, err)
+			}
+		}
+	}
+	return nil
+}
+
 // Run gofmt linter
 func Fmt() error {
 	if !isGoLatest() {
