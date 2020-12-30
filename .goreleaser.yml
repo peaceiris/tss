@@ -22,9 +22,9 @@ builds:
       - 6
     ldflags:
       - -s -w
-      - -X github.com/peaceiris/tss/lib.buildVersion={{.Version}}
-      - -X github.com/peaceiris/tss/lib.buildCommit={{.Commit}}
-      - -X github.com/peaceiris/tss/lib.buildDate={{.Date}}
+      - -X github.com/peaceiris/tss/cmd.buildVersion={{.Version}}
+      - -X github.com/peaceiris/tss/cmd.buildCommit={{.Commit}}
+      - -X github.com/peaceiris/tss/cmd.buildDate={{.Date}}
 archives:
   - format: tar.gz
     format_overrides:
@@ -35,7 +35,7 @@ archives:
       - README.md
       - LICENSE
 checksum:
-  name_template: 'checksums.txt'
+  name_template: "checksums.txt"
 snapshot:
   name_template: "{{ .Tag }}-next"
 release:
@@ -51,5 +51,5 @@ brews:
     test: |
       system "#{bin}/tss -h"
     commit_author:
-      name: 'github-actions[bot]'
-      email: 'github-actions[bot]@users.noreply.github.com'
+      name: "github-actions[bot]"
+      email: "github-actions[bot]@users.noreply.github.com"
