@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.1](https://github.com/peaceiris/tss/compare/v0.3.0...v0.3.1) (2020-12-30)
+
+
+### build
+
+* remove stretchr/testify ([6044c0b](https://github.com/peaceiris/tss/commit/6044c0b1f175459516dc13cce40efe489623e758))
+
+### deps
+
+* update ([1631ade](https://github.com/peaceiris/tss/commit/1631adeac84ce5498d8fb18104e4b92892cca535))
+
+
+
 # [0.3.0](https://github.com/peaceiris/tss/compare/v0.2.0...v0.3.0) (2020-12-30)
 
 
