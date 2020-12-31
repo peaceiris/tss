@@ -60,60 +60,54 @@ func TestWriter(t *testing.T) {
 
 func TestCopy(t *testing.T) {
 	t.Parallel()
+
 	max := 6
 	s := &sleepReader{max: max, sleepFor: 2 * time.Millisecond}
 	buf := new(bytes.Buffer)
 	n, err := cmd.Copy(buf, s)
 	assert.Nil(t, err)
 	want := len("hello\n") * 6
-	if int(n) != want {
-		t.Errorf("expected n of %d, got %d", want, n)
-	}
+	assert.Equal(t, want, int(n), "expected line length n")
+
 	parts := strings.Split(buf.String(), "\n")
-	if len(parts) != 7 {
-		t.Errorf("incorrect number of parts: want 6 got %d:\n%q", len(parts), parts)
-	}
+	assert.Equal(t, 7, len(parts), "incorrect number of parts")
+
 	line1 := parts[0]
-	if len(line1) != 23 {
-		t.Errorf("line1 length: want %d got %d", 23, len(line1))
-	}
+	assert.Equal(t, 23, len(line1), "line1 length is 23")
+
 	lineParts := strings.Fields(line1)
 	assert.Equal(t, 3, len(lineParts), "first line has 3 parts")
+
 	part, err := time.ParseDuration(lineParts[0])
 	assert.Nil(t, err)
-	if part > 100*time.Millisecond {
-		t.Errorf("part took too long: %d", part)
-	}
-	lineParts = strings.Fields(parts[1])
-	if len(lineParts) != 3 {
-		t.Errorf("wrong number of line parts in line 2: got %d", len(lineParts))
-	}
-}
+	assert.True(t, part <= 100*time.Millisecond, "part took right time")
 
-var scalerTests = []struct {
-	in  time.Duration
-	out string
-}{
-	{100 * time.Microsecond, "0.1ms"},
-	{500 * time.Microsecond, "0.5ms"},
-	{99 * time.Microsecond, "0.1ms"},
-	{49 * time.Microsecond, "49.0µs"},
-	{time.Millisecond, "1.0ms"},
-	{56*time.Millisecond + 290*time.Microsecond, "56.3ms"},
-	{56*time.Millisecond + 251*time.Microsecond, "56.3ms"},
-	{56*time.Millisecond + 100*time.Microsecond, "56.1ms"},
-	{3*time.Minute + 4*time.Second + 100*time.Millisecond, "3m04s"},
-	{3*time.Minute + 14*time.Second + 100*time.Millisecond, "3m14s"},
-	{14*time.Second + 100*time.Millisecond, "14.10s"},
-	{2*time.Minute - 1*time.Microsecond, "2m00s"},
-	{0, "0.0ms"},
+	lineParts = strings.Fields(parts[1])
+	assert.Equal(t, 3, len(lineParts), "wrong number of line parts in line 2")
 }
 
 func TestTimeScaler(t *testing.T) {
+	scalerTests := []struct {
+		in  time.Duration
+		out string
+	}{
+		{100 * time.Microsecond, "0.1ms"},
+		{500 * time.Microsecond, "0.5ms"},
+		{99 * time.Microsecond, "0.1ms"},
+		{49 * time.Microsecond, "49.0µs"},
+		{time.Millisecond, "1.0ms"},
+		{56*time.Millisecond + 290*time.Microsecond, "56.3ms"},
+		{56*time.Millisecond + 251*time.Microsecond, "56.3ms"},
+		{56*time.Millisecond + 100*time.Microsecond, "56.1ms"},
+		{3*time.Minute + 4*time.Second + 100*time.Millisecond, "3m04s"},
+		{3*time.Minute + 14*time.Second + 100*time.Millisecond, "3m14s"},
+		{14*time.Second + 100*time.Millisecond, "14.10s"},
+		{2*time.Minute - 1*time.Microsecond, "2m00s"},
+		{0, "0.0ms"},
+	}
+
 	for _, tt := range scalerTests {
 		v := cmd.TimeScaler(tt.in)
-		if v != tt.out {
-			t.Errorf("timeScaler(%q): want %q, got %q", tt.in, tt.out, v)
-		}
+		assert.Equal(t, tt.out, v, "timeScaler")
 	}
 }
