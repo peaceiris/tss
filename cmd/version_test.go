@@ -36,5 +36,5 @@ func TestBuildEnvsString(t *testing.T) {
 	cmd.Execute()
 	out := buf.String()
 
-	assert.Equal(t, out, want, "they should be equal")
+	assert.Equal(t, want, out, "they should be equal")
 }
