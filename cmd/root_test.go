@@ -80,7 +80,7 @@ func TestCopy(t *testing.T) {
 
 	part, err := time.ParseDuration(lineParts[0])
 	assert.Nil(t, err)
-	assert.True(t, part <= 100*time.Millisecond, "part took right time")
+	assert.Truef(t, part <= 100*time.Millisecond, "part <= 100*time.Millisecond: %s <= %s", part, 100*time.Millisecond)
 
 	lineParts = strings.Fields(parts[1])
 	assert.Equal(t, 3, len(lineParts), "wrong number of line parts in line 2")
