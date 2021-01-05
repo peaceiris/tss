@@ -46,7 +46,7 @@ brews:
       name: homebrew-tap
     folder: Formula
     homepage: https://github.com/peaceiris/tss
-    description: A Go port of moreutils/ts and fork of kevinburke/tss
+    description: Annotate stdin with timestamps per line. A Go port of moreutils/ts and fork of kevinburke/tss.
     license: MIT
     test: |
       system "#{bin}/tss -h"
