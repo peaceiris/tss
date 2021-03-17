@@ -42,7 +42,7 @@ jobs:
       - run: mage lint
       - run: mage test
 
-      - uses: codecov/codecov-action@v1.2.2
+      - uses: codecov/codecov-action@v1.3.1
         with:
           file: ./coverage.txt
 
