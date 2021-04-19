@@ -42,13 +42,7 @@ func runWith(env map[string]string, cmd string, inArgs ...interface{}) error {
 
 // Install development tools
 func Setup() error {
-	if err := sh.Run(goexe, "get", "-u", "golang.org/x/lint/golint"); err != nil {
-		return err
-	}
-	if err := sh.Run(goexe, "mod", "tidy"); err != nil {
-		return err
-	}
-	if err := sh.Run(goexe, "mod", "verify"); err != nil {
+	if err := sh.Run(goexe, "install", "golang.org/x/lint/golint"); err != nil {
 		return err
 	}
 	return nil
