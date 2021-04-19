@@ -40,6 +40,14 @@ func runWith(env map[string]string, cmd string, inArgs ...interface{}) error {
 	return sh.RunWith(env, cmd, s...)
 }
 
+// Install development tools
+func Setup() error {
+	if err := sh.Run(goexe, "install", "golang.org/x/lint/golint"); err != nil {
+		return err
+	}
+	return nil
+}
+
 // Build binary
 func Build() error {
 	return runWith(flagEnv(), goexe, "build", "-ldflags", ldflags, buildFlags(), packageName)
