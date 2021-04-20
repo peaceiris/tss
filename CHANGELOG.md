@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.5.0](https://github.com/peaceiris/tss/compare/v0.4.0...v0.5.0) (2021-04-20)
+
+
+### chore
+
+* gofmt -w tools.go ([275f778](https://github.com/peaceiris/tss/commit/275f7788241d54f50052e1b78b36d97a1d3cfe9b))
+* update description ([3c87a9e](https://github.com/peaceiris/tss/commit/3c87a9e9b4e54e0724c1dc87bc7135d5259f2d08))
+
+### ci
+
+* Add tools.go (#31) ([bf10f06](https://github.com/peaceiris/tss/commit/bf10f06837e44d349162d0a14fea63f530f689e6)), closes [#31](https://github.com/peaceiris/tss/issues/31)
+* bump actions/cache from v2 to v2.1.4 (#23) ([6d958d0](https://github.com/peaceiris/tss/commit/6d958d05be15b4e7129124e1619dd2126429e3a5)), closes [#23](https://github.com/peaceiris/tss/issues/23)
+* bump actions/cache from v2.1.4 to v2.1.5 (#29) ([6509162](https://github.com/peaceiris/tss/commit/6509162e411bd07f9ffdfda77cd546412abdf0af)), closes [#29](https://github.com/peaceiris/tss/issues/29)
+* bump codecov/codecov-action from v1.1.1 to v1.2.0 (#20) ([318b46d](https://github.com/peaceiris/tss/commit/318b46d638d4d65e0db19df15a8c68e5b2faf1a8)), closes [#20](https://github.com/peaceiris/tss/issues/20)
+* bump codecov/codecov-action from v1.2.0 to v1.2.1 (#21) ([bc136a5](https://github.com/peaceiris/tss/commit/bc136a52c357e3ea6279eed5f562fa6d3727d84d)), closes [#21](https://github.com/peaceiris/tss/issues/21)
+* bump codecov/codecov-action from v1.2.1 to v1.2.2 (#26) ([8da3dcc](https://github.com/peaceiris/tss/commit/8da3dcc51895d02db2190fe9fd49767da1743f90)), closes [#26](https://github.com/peaceiris/tss/issues/26)
+* bump codecov/codecov-action from v1.2.2 to v1.3.1 (#27) ([864bf44](https://github.com/peaceiris/tss/commit/864bf449b099e31a02ad26f3fcf8acbb50bf2149)), closes [#27](https://github.com/peaceiris/tss/issues/27)
+* bump codecov/codecov-action from v1.3.1 to v1.3.2 (#28) ([c0bc42b](https://github.com/peaceiris/tss/commit/c0bc42b1ec09746dfade58585e3c43e9ad362878)), closes [#28](https://github.com/peaceiris/tss/issues/28)
+* bump codecov/codecov-action from v1.3.2 to v1.4.0 (#30) ([e28513b](https://github.com/peaceiris/tss/commit/e28513bde6263cabdcd3b111e36ee04b33db8851)), closes [#30](https://github.com/peaceiris/tss/issues/30)
+* integrate test and release jobs into one ([f5279f7](https://github.com/peaceiris/tss/commit/f5279f76ac8e6e641f7d65fb108965da2e978ab3))
+
+### deps
+
+* Add github.com/oligot/go-mod-upgrade ([8248e2d](https://github.com/peaceiris/tss/commit/8248e2d716cff625eb4a7a7860d87fab2b5c585c))
+* bump github.com/spf13/cobra from 1.1.1 to 1.1.3 (#24) ([a86e0cd](https://github.com/peaceiris/tss/commit/a86e0cd62c538af71df91698e2edb850f7d6c992)), closes [#24](https://github.com/peaceiris/tss/issues/24)
+* bump github.com/stretchr/testify from 1.6.1 to 1.7.0 (#22) ([9f2d453](https://github.com/peaceiris/tss/commit/9f2d4539dfad7e1f40c2c72696c75e7025636a4f)), closes [#22](https://github.com/peaceiris/tss/issues/22)
+* Bump go from 1.15 to 1.16 (#32) ([a52699c](https://github.com/peaceiris/tss/commit/a52699c2c231f169352c0812cbe9a16173d79e29)), closes [#32](https://github.com/peaceiris/tss/issues/32)
+* update Dependencies ([93510d0](https://github.com/peaceiris/tss/commit/93510d05520f6816092146d1c8c38374a1364146))
+
+### docs
+
+* Add docker build demo gif ([9f1b3d8](https://github.com/peaceiris/tss/commit/9f1b3d8b94a59e004113724c752f00d8cf4ac699))
+* update output for tss 0.4.0 ([65658e2](https://github.com/peaceiris/tss/commit/65658e28b6530073110f29a7ef365fea3c7b54f3))
+
+### test
+
+* use testify/assert (#17) ([cc869b6](https://github.com/peaceiris/tss/commit/cc869b681ba2f6c75e9497aa98f759fa97f78642)), closes [#17](https://github.com/peaceiris/tss/issues/17)
+
+
+
 # [0.4.0](https://github.com/peaceiris/tss/compare/v0.3.1...v0.4.0) (2020-12-30)
 
 
