@@ -44,7 +44,7 @@ jobs:
       - run: mage lint
       - run: mage test
 
-      - uses: codecov/codecov-action@v1.4.0
+      - uses: codecov/codecov-action@v1.4.1
         with:
           file: ./coverage.txt
 
