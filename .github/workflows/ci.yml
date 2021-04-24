@@ -55,6 +55,11 @@ jobs:
       - run: tss version
       - run: tss -h
 
+      - name: Run Gosec
+        uses: securego/gosec@v2.7.0
+        with:
+          args: ./...
+
   release:
     runs-on: ubuntu-18.04
     needs: test
