@@ -3,6 +3,7 @@ package cmd
 import (
 	"bytes"
 	"io"
+	"log"
 	"testing"
 	"time"
 )
@@ -24,7 +25,10 @@ func BenchmarkCopy(b *testing.B) {
 	b.ResetTimer()
 
 	for i := 0; i < b.N; i++ {
-		CopyTime(buf, lr, time.Now().Add(-50*time.Millisecond))
+		_, err := CopyTime(buf, lr, time.Now().Add(-50*time.Millisecond))
+		if err != nil {
+			log.Fatal(err)
+		}
 		buf.Reset()
 		rd.Reset(bs)
 	}
@@ -60,7 +64,10 @@ func BenchmarkWriter(b *testing.B) {
 	b.ResetTimer()
 
 	for i := 0; i < b.N; i++ {
-		io.Copy(w, lr)
+		_, err := io.Copy(w, lr)
+		if err != nil {
+			log.Fatal(err)
+		}
 		buf.Reset()
 		rd.Reset(bs)
 	}
@@ -83,7 +90,10 @@ func BenchmarkWriterBig(b *testing.B) {
 	b.ResetTimer()
 
 	for i := 0; i < b.N; i++ {
-		io.Copy(w, rd)
+		_, err := io.Copy(w, rd)
+		if err != nil {
+			log.Fatal(err)
+		}
 		buf.Reset()
 		rd.Reset(bs)
 	}
