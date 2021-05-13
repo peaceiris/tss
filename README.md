@@ -22,6 +22,8 @@ The second column is the amount of time that has elapsed since the last line pri
 
 ![tss-demo](https://user-images.githubusercontent.com/30958501/103408835-923c9e80-4ba7-11eb-840a-7275e6fac18c.gif)
 
+Note that: The demo has been created with the old docker version. The log format of `docker build` is different from the latest version.
+
 [![license](https://img.shields.io/github/license/peaceiris/tss.svg)](https://github.com/peaceiris/tss/blob/main/LICENSE)
 [![release](https://img.shields.io/github/release/peaceiris/tss.svg)](https://github.com/peaceiris/tss/releases/latest)
 [![GitHub release date](https://img.shields.io/github/release-date/peaceiris/tss.svg)](https://github.com/peaceiris/tss/releases)
