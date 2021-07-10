@@ -3,7 +3,7 @@ FROM golang:1.16-alpine3.13 AS dev
 ENV GOOS=linux
 ENV GO111MODULE=on
 
-RUN apk add --no-cache bash && \
+RUN apk add --update-cache --no-cache bash && \
     go get github.com/magefile/mage
 WORKDIR /go/src/github.com/peaceiris/tss
 
