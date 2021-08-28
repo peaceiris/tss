@@ -100,13 +100,13 @@ func testGoFlags() string {
 // Run tests
 func Test() error {
 	env := map[string]string{"GOFLAGS": testGoFlags()}
-	return runCmd(env, goexe, "test", "-coverpkg", "./...", "-covermode", "atomic", "-coverprofile", "coverage.txt", "./...", buildFlags())
+	return runCmd(env, goexe, "test", "-shuffle", "on", "-coverpkg", "./...", "-covermode", "atomic", "-coverprofile", "coverage.txt", "./...", buildFlags())
 }
 
 // Run tests with race detector
 func TestRace() error {
 	env := map[string]string{"GOFLAGS": testGoFlags()}
-	return runCmd(env, goexe, "test", "-race", "-coverpkg", "./...", "-covermode", "atomic", "-coverprofile", "coverage.txt", "./...", buildFlags())
+	return runCmd(env, goexe, "test", "-shuffle", "on", "-race", "-coverpkg", "./...", "-covermode", "atomic", "-coverprofile", "coverage.txt", "./...", buildFlags())
 }
 
 // Run gofmt -w
