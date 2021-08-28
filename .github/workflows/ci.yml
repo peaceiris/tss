@@ -12,6 +12,9 @@ on:
     paths-ignore:
       - '**.md'
 
+env:
+  GO_VERSION: '1.17'
+
 jobs:
   test:
     runs-on: ubuntu-18.04
@@ -21,7 +24,7 @@ jobs:
       # https://github.com/peaceiris/workflows/blob/main/setup-go/action.yml
       - uses: peaceiris/workflows/setup-go@v0.9.0
         with:
-          go-version: '1.16'
+          go-version: '${{ env.GO_VERSION }}'
 
       - run: go mod download
       - run: go mod verify
@@ -53,7 +56,7 @@ jobs:
 
       - uses: peaceiris/workflows/setup-go@v0.9.0
         with:
-          go-version: '1.16'
+          go-version: '${{ env.GO_VERSION }}'
 
       - name: goreleaser release
         env:
