@@ -272,9 +272,15 @@ func argsToStrings(v ...interface{}) []string {
 	return args
 }
 
+func flagEnvNpm() map[string]string {
+	return map[string]string{
+		"npm_config_yes": "true",
+	}
+}
+
 func BumpVersion(releaseType string) error {
-	fmt.Printf("\nnpx standard-version --release-as %s --preset eslint\n", releaseType)
-	out, err := sh.Output("npx", "standard-version", "--release-as", releaseType, "--preset", "eslint")
+	fmt.Printf("\nnpm_config_yes=true npx standard-version --release-as %s --preset eslint\n", releaseType)
+	out, err := sh.OutputWith(flagEnvNpm(), "npx", "standard-version", "--release-as", releaseType, "--preset", "eslint")
 	fmt.Println(out)
 	if err != nil {
 		return err
@@ -288,20 +294,20 @@ func BumpVersion(releaseType string) error {
 	return nil
 }
 
-// Run npx standard-version --release-as patch --preset eslint
+// Run npm_config_yes=true npx standard-version --release-as patch --preset eslint
 func BumpPatchVersion() error {
 	return BumpVersion("patch")
 }
 
-// Run npx standard-version --release-as minor --preset eslint
+// Run npm_config_yes=true npx standard-version --release-as minor --preset eslint
 func BumpMinorVersion() error {
 	return BumpVersion("minor")
 }
 
-// Run npx standard-version --release-as patch --preset eslint --dry-run
+// Run npm_config_yes=true npx standard-version --release-as patch --preset eslint --dry-run
 func BumpVersionTest() error {
 	fmt.Printf("\nnpx standard-version --release-as patch --preset eslint --dry-run\n")
-	out, err := sh.Output("npx", "standard-version", "--release-as", "patch", "--preset", "eslint", "--dry-run")
+	out, err := sh.OutputWith(flagEnvNpm(), "npx", "standard-version", "--release-as", "patch", "--preset", "eslint", "--dry-run")
 	fmt.Println(out)
 	return err
 }
