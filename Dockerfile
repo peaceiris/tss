@@ -1,4 +1,4 @@
-FROM golang:1.16-alpine3.13 AS dev
+FROM golang:1.17-alpine3.14 AS dev
 
 ENV GOOS=linux
 ENV GO111MODULE=on
@@ -17,7 +17,7 @@ RUN mage install
 
 # ---
 
-FROM alpine:3.13
+FROM alpine:3.14
 
 COPY --from=builder /go/bin/tss /usr/bin/tss
 
