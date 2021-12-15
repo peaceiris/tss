@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.1](https://github.com/peaceiris/tss/compare/v0.6.0...v0.6.1) (2021-12-15)
+
+
+### ci
+
+* bump actions/checkout from 2.3.4 to 2.3.5 (#56) ([84111ff](https://github.com/peaceiris/tss/commit/84111ff790a539e1ea2c6551375c50ff29fb1c37)), closes [#56](https://github.com/peaceiris/tss/issues/56)
+* bump actions/checkout from 2.3.5 to 2.4.0 (#57) ([3702e22](https://github.com/peaceiris/tss/commit/3702e2215cce02c7664c7f9427bb52cc37f34afb)), closes [#57](https://github.com/peaceiris/tss/issues/57)
+* bump codecov/codecov-action from 2.0.3 to 2.1.0 (#54) ([4b322df](https://github.com/peaceiris/tss/commit/4b322df4f72cf069c77f8992b11654003bb73321)), closes [#54](https://github.com/peaceiris/tss/issues/54)
+* bump peaceiris/workflows from 0.10.0 to 0.11.0 (#55) ([fe0d5f9](https://github.com/peaceiris/tss/commit/fe0d5f9c29a16e5e06a14cf63539b195fed98d6a)), closes [#55](https://github.com/peaceiris/tss/issues/55)
+* bump peaceiris/workflows from 0.9.0 to 0.10.0 (#53) ([708716e](https://github.com/peaceiris/tss/commit/708716e4233504cba894ba22c04f8907338cfd58)), closes [#53](https://github.com/peaceiris/tss/issues/53)
+
+### deps
+
+* bump github.com/spf13/cobra from 1.2.1 to 1.3.0 (#58) ([8bee5f9](https://github.com/peaceiris/tss/commit/8bee5f913ff9b658662a23d06fbbc661c33ef304)), closes [#58](https://github.com/peaceiris/tss/issues/58)
+
+### test
+
+* shuffle on ([d8b86dd](https://github.com/peaceiris/tss/commit/d8b86dd52a94ad69a08eb898825c336ac01caf9e))
+
+
+
 # [0.6.0](https://github.com/peaceiris/tss/compare/v0.5.0...v0.6.0) (2021-08-28)
 
 
