@@ -7,8 +7,12 @@ on:
   pull_request:
 
 jobs:
-  CodeQL-Build:
+  main:
     runs-on: ubuntu-20.04
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
     steps:
       - uses: actions/checkout@v3
 
