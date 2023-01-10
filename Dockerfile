@@ -1,4 +1,4 @@
-FROM golang:1.17-alpine3.14 AS dev
+FROM golang:1.18-alpine3.14 AS dev
 
 ENV GOOS=linux
 ENV GO111MODULE=on
