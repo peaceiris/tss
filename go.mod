@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/magefile/mage v1.14.0
 	github.com/spf13/cobra v1.6.1
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.8.2
 	golang.org/x/lint v0.0.0-20210508222113-6edffad5e616
 )
 
