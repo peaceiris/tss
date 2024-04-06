@@ -17,7 +17,7 @@ RUN mage install
 
 # ---
 
-FROM alpine:3.18
+FROM alpine:3.19
 
 COPY --from=builder /go/bin/tss /usr/bin/tss
 
