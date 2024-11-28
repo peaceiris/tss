@@ -3,6 +3,7 @@ package cmd
 import (
 	"bytes"
 	"fmt"
+	"log"
 	"runtime"
 	"strings"
 	"testing"
@@ -33,7 +34,9 @@ func TestBuildEnvsString(t *testing.T) {
 	cmdArgs := strings.Split(command, " ")
 	fmt.Printf("cmdArgs %+v\n", cmdArgs)
 	cmd.SetArgs(cmdArgs[1:])
-	cmd.Execute()
+	if err := cmd.Execute(); err != nil {
+		log.Fatal(err)
+	}
 	out := buf.String()
 
 	assert.Equal(t, want, out, "they should be equal")
