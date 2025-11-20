@@ -19,7 +19,7 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       # https://github.com/peaceiris/workflows/blob/main/setup-go/action.yml
       - uses: peaceiris/workflows/setup-go@v0.21.2
@@ -50,7 +50,7 @@ jobs:
     needs: test
     if: ${{ startsWith(github.ref, 'refs/tags/') }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
